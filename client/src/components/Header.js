@@ -10,10 +10,10 @@ class Header extends Component {
                     <div className="container">
                         <div className="cat-nav-head">
                             <div className="row">
-                            <div className="col-lg-2 col-md-2 col-12">
+                            <div className="col-lg-3 col-md-2 col-12">
                                 {/* Logo */}
                                 <div className="logo">
-                                    <Link to="/"><img src="images/logo.png" alt="logo" /></Link>
+                                    <Link to="/"><img src="/images/logo.png" alt="logo" /></Link>
                                 </div>
                                 {/*/ End Logo */}
                                 <div className="mobile-nav" />
@@ -27,17 +27,14 @@ class Header extends Component {
                                                 <div className="nav-inner">
                                                     <ul className="nav main-menu menu navbar-nav">
                                                         <li ><NavLink to="/">Home</NavLink></li>
-                                                        <li><NavLink to="shop">Shop<i className="ti-angle-down" /><span className="new">New</span></NavLink>
+                                                        <li><NavLink to="/shop">Shop<i className="ti-angle-down" /><span className="new">New</span></NavLink>
                                                             <ul className="dropdown">
-                                                                <li><Link to="shop-grid.html">Shop Grid</Link></li>
-                                                                <li><Link to="cart.html">Cart</Link></li>
-                                                                <li><Link to="checkout.html">Checkout</Link></li>
+                                                                <li><Link to="/manshop">Man's Shop</Link></li>
+                                                                <li><Link to="woman">Woman's Shop</Link></li>
                                                             </ul>
                                                         </li>
-                                                        <li><NavLink to="blog">Blog</NavLink></li>
-                                                        <li><NavLink to="contact.html">Contact Us</NavLink></li>
-                                                        <li><NavLink to="contact.html">About Us</NavLink></li>
-                                                        <li><NavLink to="contact.html">Contact Us</NavLink></li>
+                                                        <li><NavLink to="/blog">Blog</NavLink></li>
+                                                        <li><NavLink to="/contact">Contact Us</NavLink></li>
                                                     </ul>
                                                 </div>
                                             </div>

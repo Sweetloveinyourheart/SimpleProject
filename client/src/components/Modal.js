@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
 class Modal extends Component {
-    state = {}
+    constructor(props){
+        super(props);
+        this.state = {
+            display: 'block'
+        }
+        this.close = this.close.bind(this);
+    }
+    close(){
+        this.setState({
+            display: 'none'
+        })
+    }
     render() {
         return (
-            <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog">
-                <div className="modal-dialog" role="document">
+            <div className="modal fade show"  style={{display: this.state.display}}>
+                <div className="modal-dialog" role="document" style={{margin: '8% auto 8%'}}>
                     <div className="modal-content">
                         <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span className="ti-close" aria-hidden="true" /></button>
+                            <button type="button" className="close" onClick={this.close}><span className="ti-close" aria-hidden="true" /></button>
                         </div>
                         <div className="modal-body">
                             <div className="row no-gutters">
                                 <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     {/* Product Slider */}
                                     <div className="product-gallery">
-                                        <div className="quickview-slider-active">
+                                        <div className="quickview-slider-active owl-carousel">
                                             <div className="single-slider">
                                                 <img src="https://via.placeholder.com/569x528" alt="#" />
                                             </div>
-                                            <div className="single-slider">
-                                                <img src="https://via.placeholder.com/569x528" alt="#" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="https://via.placeholder.com/569x528" alt="#" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="https://via.placeholder.com/569x528" alt="#" />
+                                            <div className="owl-nav">
+                                                <div className="owl-prev">
+                                                    <i className="ti-arrow-left"/>
+                                                </div>
+                                                <div className="owl-next">
+                                                    <i className="ti-arrow-right"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -35,57 +45,19 @@ class Modal extends Component {
                                     <div className="quickview-content">
                                         <h2>Flared Shift Dress</h2>
                                         <div className="quickview-ratting-review">
-                                            <div className="quickview-ratting-wrap">
-                                                <div className="quickview-ratting">
-                                                    <i className="yellow fa fa-star" />
-                                                    <i className="yellow fa fa-star" />
-                                                    <i className="yellow fa fa-star" />
-                                                    <i className="yellow fa fa-star" />
-                                                    <i className="fa fa-star" />
-                                                </div>
-                                                <a href="abc"> (1 customer review)</a>
-                                            </div>
                                             <div className="quickview-stock">
-                                                <span><i className="fa fa-check-circle-o" /> in stock</span>
+                                                <span><i className="fa fa-check-circle-o" /> Đầm Xuông</span>
                                             </div>
                                         </div>
-                                        <h3>$29.00</h3>
+                                        <h3>$29.00</h3>                                       
                                         <div className="quickview-peragraph">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
                                         </div>
-                                        <div className="size">
-                                            <div className="row">
-                                                <div className="col-lg-6 col-12">
-                                                    <h5 className="title">Size</h5>
-                                                    
-                                                </div>
-                                                <div className="col-lg-6 col-12">
-                                                    <h5 className="title">Color</h5>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="quantity">
-                                            {/* Input Order */}
-                                            <div className="input-group">
-                                                <div className="button minus">
-                                                    <button type="button" className="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                        <i className="ti-minus" />
-                                                    </button>
-                                                </div>
-                                                <input type="text" name="quant[1]" className="input-number" data-min={1} data-max={1000} defaultValue={1} />
-                                                <div className="button plus">
-                                                    <button type="button" className="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-                                                        <i className="ti-plus" />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            {/*/ End Input Order */}
-                                        </div>
+                                        
                                         <div className="add-to-cart">
                                             <a href="abc" className="btn">Add to cart</a>
                                             <a href="abc" className="btn min"><i className="ti-heart" /></a>
-                                            <a href="abc" className="btn min"><i className="fa fa-compress" /></a>
                                         </div>
                                         <div className="default-social">
                                             <h4 className="share-now">Share:</h4>

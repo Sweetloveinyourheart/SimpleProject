@@ -2,12 +2,21 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
 
 const app = express();
 
 //Connect to MongoDB
-
-
+const uri = process.env.ATLAS;
+mongoose.connect(uri, {
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, () => {
+    console.log('Connect to DB successfully !')
+})
 //MiddleWare
 app.use(cors());
 app.use(bodyParser.json());

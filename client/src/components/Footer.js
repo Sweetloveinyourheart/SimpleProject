@@ -10,9 +10,9 @@ class Footer extends Component {
                             <div className="row">
                                 <div className="col-lg-3 col-md-6 col-6">
                                     {/* Single Widget */}
-                                    <div className="single-footer about">
+                                    <div className="single-footer about_shop">
                                         <div className="logo">
-                                            <a href="index.html"><img src="images/logo2.png" alt="#" /></a>
+                                            <a href="index.html"><img src="/images/logo2.png" alt="#" /></a>
                                         </div>
                                         <p className="call">Got Question? Mail us now!<span><a href="tel:123456789">tynxcode.js@gmail.com</a></span></p>
                                     </div>
@@ -49,8 +49,8 @@ class Footer extends Component {
                                         {/* Single Widget */}
                                         <div className="contact">
                                             <ul>
-                                                <li>Ea Tam - BMT City</li>
-                                                <li>DakLak - Viet Nam</li>
+                                                <li>BMT City - Viet Nam</li>
+                                                <li>HCM City - Viet Nam</li>
                                                 <li>tynxcode.js@gmail.com</li>
                                             </ul>
                                         </div>

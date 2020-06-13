@@ -17,7 +17,7 @@ class Slider extends Component {
                                                     <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
                                                     <p>Maboriosam in a nesciung eget magnae <br /> dapibus disting tloctio in the find it pereri <br /> odiy maboriosm.</p>
                                                     <div className="button">
-                                                        <Link to="#" className="btn">Shop Now!</Link>
+                                                        <Link to="/shop" className="btn">Shop Now!</Link>
                                                     </div>
                                                 </div>
                                             </div>

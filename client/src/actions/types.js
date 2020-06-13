@@ -1,0 +1,3 @@
+export const SWITCH_TO_ADD = "SWITCH_TO_ADD";
+export const SWITCH_TO_UPDATE = "SWITCH_TO_UPDATE";
+export const SWITCH_TO_REMOVE = "SWITCH_TO_REMOVE";
