@@ -10,6 +10,9 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String
+    },
     description: {
         type: String,
     },
@@ -25,4 +28,4 @@ const productSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model(productSchema); 
+module.exports = mongoose.model('product',productSchema); 
