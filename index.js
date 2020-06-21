@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dashBoardRouter = require('./router/dashboardRouter');
+const homePageRouter = require('./router/homePageRouter');
 const shopRouter = require('./router/shopRouter');
 const morgan = require('morgan');
 
@@ -31,6 +32,7 @@ app.use(morgan('dev'))
 //router
 app.use('/api', dashBoardRouter);
 app.use('/api', shopRouter);
+app.use('/api', homePageRouter);
 
 const PORT = process.env.PORT || 9999;
 const sever = http.createServer(app);

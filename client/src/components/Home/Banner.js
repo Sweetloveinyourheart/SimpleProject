@@ -9,7 +9,7 @@ class Banner extends Component {
                             {/* Single Banner  */}
                             <div className="col-lg-4 col-md-6 col-12">
                                 <div className="single-banner">
-                                    <img src="https://via.placeholder.com/600x370" alt="#" />
+                                    <img src="/images/Home/Banner_01.jpg" alt="#" />
                                     <div className="content">
                                         <p>Man's Collectons</p>
                                         <h3>Summer travel <br /> collection</h3>
@@ -21,7 +21,7 @@ class Banner extends Component {
                             {/* Single Banner  */}
                             <div className="col-lg-4 col-md-6 col-12">
                                 <div className="single-banner">
-                                    <img src="https://via.placeholder.com/600x370" alt="#" />
+                                    <img src="/images/Home/Banner_02.jpg" alt="#" />
                                     <div className="content">
                                         <p>Bag Collectons</p>
                                         <h3>Awesome Bag <br /> 2020</h3>
@@ -33,7 +33,7 @@ class Banner extends Component {
                             {/* Single Banner  */}
                             <div className="col-lg-4 col-12">
                                 <div className="single-banner tab-height">
-                                    <img src="https://via.placeholder.com/600x370" alt="#" />
+                                    <img src="/images/Home/Banner_03.jpg" alt="#" />
                                     <div className="content">
                                         <p>Flash Sale</p>
                                         <h3>Mid Season <br /> Up to <span>40%</span> Off</h3>

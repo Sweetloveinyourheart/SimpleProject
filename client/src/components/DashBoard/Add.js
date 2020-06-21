@@ -8,7 +8,8 @@ class Add extends Component {
             cost: '',
             category: '',
             image1: '', image2: '', image3: '', image4: '',
-            description: ''
+            description: '',
+            link: ''
         }
         this.onHandleChange = this.onHandleChange.bind(this);
         this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -20,16 +21,21 @@ class Add extends Component {
             [name]: value
         });
     }
-    onHandleSubmit(e){
+    async onHandleSubmit(e){
         e.preventDefault();
         const newProduct = {
             name: this.state.name,
-            cost: this.state.cost,
+            price: this.state.cost,
             category: this.state.category,
-            image: [this.state.image1, this.state.image2,this.state.image3,this.state.image4],
-            description: this.state.description
+            images: [this.state.image1, this.state.image2,this.state.image3,this.state.image4],
+            description: this.state.description,
+            link: this.state.link
         }
-        console.log(newProduct)
+        await this.props.add(newProduct);
+        if(this.props.message === true){
+            return alert('Add New Product Successfully !!')
+        }
+        return alert('Add New Product Failed !  ')
     }   
     render() {
         return (
@@ -55,28 +61,34 @@ class Add extends Component {
                                 <input name="category" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Cover Image<span>*</span></label>
                                 <input name="image1" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Main Image</label>
                                 <input name="image2" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Main Image</label>
                                 <input name="image3" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Main Image</label>
                                 <input name="image4" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Link To Product</label>
+                                <input name="link" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
                         <div className="col-12">

@@ -10,6 +10,9 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
+    link: {
+        type: String
+    }, 
     category: {
         type: String
     },
@@ -23,9 +26,7 @@ const productSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    Snum: {
-        type: Number
-    }
+    
 });
 
 module.exports = mongoose.model('product',productSchema); 

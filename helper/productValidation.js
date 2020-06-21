@@ -20,8 +20,10 @@ module.exports = {
             name: joi.string().required(),
             price: joi.string().required(),
             category: joi.string().required(),
+            link: joi.string().required(),
             images: joi.array(),
-            description: joi.string()
+            description: joi.string(),
+            
         })
     }
 }

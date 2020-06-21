@@ -4782,6 +4782,7 @@ Version:1.0
 
 .dashboard .content .find input {
 	width: 70%;
+	margin-bottom: 10px;
 }
 .dashboard .content .find button{
 	padding: 9px 22px;

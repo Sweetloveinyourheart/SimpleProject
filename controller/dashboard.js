@@ -1,28 +1,13 @@
 const Product = require('../models/product');
 
 module.exports = {
-    getAllProduct: async (req, res, next) => {
-        try {
-            const product = await Product.find()
-
-            res.status(200).json({
-                success: true,
-                product
-            })
-        } catch (error) {
-            res.status(404).json({
-                success: false,
-                error
-            })
-        }
-    },
     findProduct: async (req, res, next) => {    
         try {
             const name = req.query.name;
             
             const criteria = RegExp(name, 'i')
             const result = await Product.find({ name: criteria })
-                .select({ _id: 1, name: 1, images: 1 })
+                .select({ _id: 1, name: 1, images: 1, price: 1 })
 
             res.status(200).json({
                 success: true,
@@ -37,13 +22,14 @@ module.exports = {
     },
     createNewProduct: async (req, res, next) => {
         try {
-            const { name, price, category, images, description } = req.value.body
+            const { name, price, category, images, description, link } = req.value.body
             const newProduct = new Product({
                 name,
                 price,
                 category,
                 images,
-                description
+                description,
+                link
             })  
             await newProduct.save()
 
@@ -61,9 +47,9 @@ module.exports = {
     },
     updateAProduct: async (req, res, next) => {
         try {
-            const id = req.param.id
+            const id = req.params.id
 
-            await Product.findOneAndUpdate(id, req.body);
+            await Product.findByIdAndUpdate(id, req.body);
             res.status(200).json({
                 success: true,
                 message: 'Updated !~'
@@ -77,12 +63,12 @@ module.exports = {
     },
     removeAProduct: async (req, res, next) => {
         try {
-            const id = req.param.id
-            await Product.findOneAndDelete(id)
+            const id = req.params.id
+            await Product.findByIdAndRemove({_id: id})
             res.status(200).json({
                 success: true,
                 message: 'Removed !'
-            })
+            })  
         } catch (error) {
             res.status(404).json({
                 success: false,

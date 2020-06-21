@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import Find from './Find';
 
 class Update extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: null,
-            cost: null,
-            category: null,
-            image1: null, image2: null, image3: null, image4: null,
-            description: null,
-            id: null
-        }
+
         this.onHandleChange = this.onHandleChange.bind(this);
         this.onHandleSubmit = this.onHandleSubmit.bind(this);
     }
@@ -22,95 +14,85 @@ class Update extends Component {
             [name]: value
         });
     }
-    onHandleSubmit(e) {
+    async onHandleSubmit(e) {
         e.preventDefault();
-        const newProduct = {
-            name: this.state.name,
-            cost: this.state.cost,
-            category: this.state.category,
-            image: [this.state.image1, this.state.image2, this.state.image3, this.state.image4],
-            description: this.state.description
-        }
-        console.log(newProduct)
-        console.log(this.state.id);
+        if (!this.state.id) { alert('You must enter Product\'s id') }
+        console.log(this.state)
+
     }
     render() {
         return (
             <div className="update">
                 <h3>Update A Product </h3>
-                <div className="row">
-                <div className="col-lg-6 col-md-6 col-12">
-                        <Find />
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-12">
-                        <form onSubmit={this.onHandleSubmit} >
-                            <div className="row">
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group">
-                                        <label>Product's Name<span>*</span></label>
-                                        <input name="name" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group">
-                                        <label>Product's Cost<span>*</span></label>
-                                        <input name="cost" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group">
-                                        <label>Product's Category<span>*</span></label>
-                                        <input name="category" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group">
-                                        <label>Cover Image<span>*</span></label>
-                                        <input name="image1" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-12">
-                                    <div className="form-group">
-                                        <label>Main Image</label>
-                                        <input name="image2" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-12">
-                                    <div className="form-group">
-                                        <label>Main Image</label>
-                                        <input name="image3" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-12">
-                                    <div className="form-group">
-                                        <label>Main Image</label>
-                                        <input name="image4" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-12">
-                                    <div className="form-group message">
-                                        <label>Product Description<span>*</span></label>
-                                        <textarea name="description" onChange={this.onHandleChange}></textarea>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group">
-                                        <label>Product's Id</label>
-                                        <input name="id" type="text" onChange={this.onHandleChange} />
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="form-group button" style={{marginTop: '34px'}}>
-                                        <button type="submit" className="btn ">Update This Product</button>
-                                    </div>
-                                </div>
-                                
+                <form onSubmit={this.onHandleSubmit} >
+                    <div className="row">
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Product's Name<span>*</span></label>
+                                <input name="name" type="text" onChange={this.onHandleChange} />
                             </div>
-                        </form>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Product's Cost<span>*</span></label>
+                                <input name="cost" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Product's Category<span>*</span></label>
+                                <input name="category" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Cover Image<span>*</span></label>
+                                <input name="image1" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-12">
+                            <div className="form-group">
+                                <label>Main Image</label>
+                                <input name="image2" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-12">
+                            <div className="form-group">
+                                <label>Main Image</label>
+                                <input name="image3" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-12">
+                            <div className="form-group">
+                                <label>Main Image</label>
+                                <input name="image4" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Link To Product</label>
+                                <input name="link" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="form-group message">
+                                <label>Product Description<span>*</span></label>
+                                <textarea name="description" onChange={this.onHandleChange}></textarea>
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Product's Id</label>
+                                <input name="id" type="text" onChange={this.onHandleChange} />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group button" style={{ marginTop: '34px' }}>
+                                <button type="submit" className="btn ">Update This Product</button>
+                            </div>
+                        </div>
                     </div>
-                    
-                </div>
-
+                </form>
             </div>
         );
     }
