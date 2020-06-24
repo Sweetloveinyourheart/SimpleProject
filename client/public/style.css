@@ -1720,7 +1720,7 @@ Version:1.0
 	margin-bottom: -1px;
 	display: inline-block;
 }
-.product-area .nav-tabs li a {
+.product-area .nav-tabs li button {
 	color: #333;
 	text-transform: uppercase;
 	display: inline-block;
@@ -1732,15 +1732,16 @@ Version:1.0
 	padding: 3px 14px;
 	border-radius: 3px;
 	font-size: 13px;
+	height: 30px;
 }
-.product-area .nav-tabs li:last-child a{
+.product-area .nav-tabs li:last-child button{
 	border-color:transparent;
 } 
-.product-area .nav-tabs li a i{
+.product-area .nav-tabs li button i{
 	margin-right:10px;
 }
-.product-area .nav-tabs li a.active,
-.product-area .nav-tabs li:hover a{
+.product-area .nav-tabs li button.active,
+.product-area .nav-tabs li:hover button{
 	background:#F7941D;
 	color:#fff;
 	border-color:transparent;

@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
 import dashboardReducer from './dashboardReducer';
 import homepageReducer from './homePageReducer';
-import shopReducer from './shopReducer';
+import { product, page, category } from './shopReducer';
 
 const reducer = combineReducers({
     dashboard: dashboardReducer,
     homepage: homepageReducer,
-    shop: shopReducer
+    shopProduct: product,
+    shopCategory: category,
+    shopPage: page
 })
 
 export default reducer

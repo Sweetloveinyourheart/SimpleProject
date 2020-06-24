@@ -4,15 +4,18 @@ class PageController extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            page: [1, 2, 3, 4],
-            active: 1
+            page: [1, 2, 3, 4]
         }
-        this.morePage = this.morePage.bind(this);
-        this.prePage = this.prePage.bind(this);
-        this.prePage = this.prePage.bind(this);
-        this.Active = this.Active.bind(this);
     }
-    morePage() {
+    componentDidUpdate(pP, pS, ss) {
+        const { activedPage } = this.props
+        if (pP.activedPage !== activedPage) {
+            this.setState({
+                page: [activedPage, activedPage + 1, activedPage + 2, activedPage + 3]
+            })
+        }
+    }
+    morePage = () => {
         var page = this.state.page
         var newpage = page[3] + 1
         page.shift()
@@ -21,7 +24,7 @@ class PageController extends Component {
             page
         })
     }
-    prePage() {
+    prePage = () => {
         var page = this.state.page
         if (page[0] !== 1) {
             var prepage = page[0] - 1
@@ -32,16 +35,14 @@ class PageController extends Component {
             })
         }
     }
-    isActive(page) {
-        if(page === this.state.active){
+    isActive = (page) => {
+        if (page === this.props.activedPage) {
             return "active"
         }
         return ""
     }
-    Active(page){
-        this.setState({
-            active: page
-        })
+    Active = (page) => {
+        this.props.page(page)
     }
     render() {
         return (
@@ -50,19 +51,19 @@ class PageController extends Component {
                     <span>...</span>
                 </button>
                 <button className={this.isActive(this.state.page[0])}
-                        onClick={() => this.Active(this.state.page[0])}>
+                    onClick={() => this.Active(this.state.page[0])}>
                     <span>{this.state.page[0]}</span>
                 </button>
                 <button className={this.isActive(this.state.page[1])}
-                        onClick={() => this.Active(this.state.page[1])}>
+                    onClick={() => this.Active(this.state.page[1])}>
                     <span>{this.state.page[1]}</span>
                 </button>
                 <button className={this.isActive(this.state.page[2])}
-                        onClick={() => this.Active(this.state.page[2])}>
+                    onClick={() => this.Active(this.state.page[2])}>
                     <span>{this.state.page[2]}</span>
                 </button>
                 <button className={this.isActive(this.state.page[3])}
-                        onClick={() => this.Active(this.state.page[3])}>
+                    onClick={() => this.Active(this.state.page[3])}>
                     <span>{this.state.page[3]}</span>
                 </button>
                 <button onClick={this.morePage}><span >...</span></button>

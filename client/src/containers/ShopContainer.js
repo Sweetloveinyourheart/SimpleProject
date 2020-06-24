@@ -1,12 +1,39 @@
-import React, { Component } from 'react';
-import Sidebar from '../components/Shop/Sidebar';
-import ShopProduct from '../components/Shop/Product';
-import Title from '../components/Shop/Title';
-import PageController from '../components/Shop/PageController';
+import React, { Component } from 'react'
+import Sidebar from '../components/Shop/Sidebar'
+import ShopProduct from '../components/Shop/Product'
+import Title from '../components/Shop/Title'
+import PageController from '../components/Shop/PageController'
+import { connect } from 'react-redux'
+import * as actions from './../actions/shopActions'
 
 class ShopContainer extends Component {
-    state = {}
+    async componentDidMount(){
+        await this.props.getAllProduct(1)
+    }
+    async componentDidUpdate(pP, pS, ss){
+        const { category, page } = this.props
+        if((pP.category !== category) || (pP.page !== page)){
+            switch (category) {
+                case "all": 
+                    return await this.props.getAllProduct(page)
+                case "shirt":
+                    return await this.props.getShirtProduct(page)
+                case "trouser":
+                    return await this.props.getTrouserProduct(page)
+                case "dress":
+                    return await this.props.getDressProduct(page)
+                case "costume":
+                    return await this.props.getCostumeProduct(page)
+                case "accessory":
+                    return await this.props. getAccessoryProduct(page)
+                default:
+                    return await this.props.getAllProduct(page)
+            }
+        }     
+    }
     render() {
+        const { pageController, categoryController } = this.props
+        const { product, page } =this.props
         return (
             <section className="product-area section">
                 <div className="container">
@@ -16,11 +43,10 @@ class ShopContainer extends Component {
                     <div className="row">
                         <div className="col-12">
                             <div className="product-info">
-                                <Sidebar />
-                                <ShopProduct />
-                                <ShopProduct />
+                                <Sidebar category={categoryController} page={pageController}/>
+                                <ShopProduct product={product}/>                        
                             </div>
-                            <PageController />
+                            <PageController page={pageController} activedPage={page}/>
                         </div>
                     </div>
                 </div>
@@ -28,5 +54,11 @@ class ShopContainer extends Component {
         );
     }
 }
-
-export default ShopContainer;
+const mapStateToProps = state => {
+    return {
+        product: state.shopProduct.product,
+        page: state.shopPage.page,
+        category: state.shopCategory.category
+    }
+}
+export default connect(mapStateToProps, actions)(ShopContainer);
