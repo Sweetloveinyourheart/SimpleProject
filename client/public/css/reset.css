@@ -1260,6 +1260,7 @@ object {
 	line-height: 24px;
 	font-weight: 400;
 	color: #333;
+	white-space: pre-wrap;
 }
 .quickview-content .size{
 	margin-top:20px;

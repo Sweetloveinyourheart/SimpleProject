@@ -1024,7 +1024,8 @@ Version:1.0
 	padding:20px 0;
 }
 .modal-dialog .quickview-slider-active {
-	display: none;
+	display: block;
+	width: 100%;
 }
 .modal-dialog .modal-content .modal-header {
 	right: 15px;
@@ -1454,7 +1455,6 @@ Version:1.0
 }
 .shop .nice-select {
 	width: 100%;
-	display: ;
 	margin-top: 4px;
 }
 .shop .view-mode {
@@ -1468,12 +1468,10 @@ Version:1.0
 	margin-right: 5px;
 	display: inline-block;
 	margin: 0;
-	mar0-t: mar;
 	margin-top: 4px;
 	width: 100%;
 	display: block;
 	display: inline-block;
-	display: ;
 }
 .shop .view-mode li a {
 	width: 80px;
@@ -1619,7 +1617,8 @@ Version:1.0
 	padding:12px 0;
 }
 .modal-dialog .quickview-slider-active {
-	display: none;
+	display: block;
+	width: 100%;
 }
 .modal-dialog .modal-content .modal-header {
 	right: 15px;

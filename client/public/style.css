@@ -1215,7 +1215,7 @@ Version:1.0
 }
 .hero-slider .single-slider {
 	height: auto;
-	background-image: url('https://via.placeholder.com/1900x700');
+	background-image: url('/images/Home/Slider.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1962,12 +1962,13 @@ Version:1.0
 .single-product .product-content h3 {
     line-height: 22px;
 }
-.single-product .product-content h3 a {
+.single-product .product-content h3 p {
 	font-size: 14px;
 	font-weight: 500;
 	margin: 0;
+	color: #424646
 }
-.single-product .product-content h3 a:hover{
+.single-product .product-content h3 p:hover{
 	color:#F7941D;
 }
 .single-product .product-content .product-price {
@@ -3527,7 +3528,7 @@ Version:1.0
 	left:0;
 	top:50%;
 	transform:translateY(-50%);
-	padding: 75px;
+	padding: 0px 75px 75px 75px;
 }
 .cown-down .content .small-title {
 	font-size: 13px;
@@ -4223,7 +4224,10 @@ Version:1.0
 }
 .blog-single .image img{
 	width:100%;
-	height:100%;
+	height: 540px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 .blog-single .image .date {
 	position: absolute;
@@ -4280,6 +4284,7 @@ Version:1.0
 .blog-single .content p {
 	margin-bottom: 25px;
 	line-height: 26px;
+	white-space: pre-wrap;
 }
 .blog-single .content p:last-child{
 	margin:0;
@@ -4705,7 +4710,7 @@ Version:1.0
 	border-top:1px solid #eeeeee3d;
 	padding:20px 0;
 }
-.footer .copyright .left{}
+.footer .copyright .left,
 .footer .copyright .right{
 	float:right;
 }
@@ -4721,13 +4726,37 @@ Version:1.0
 ===============================*/
 
 /*=============================
+	Start Login CSS
+===============================*/
+.login {
+	padding: 150px 0;
+}
+.login .login-form {
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0px 0px 15px #0000001a;
+}
+.login h5 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.login button {
+	margin-left: 36px;
+	border-radius: 20px;
+}
+
+/*=============================
+	End Login CSS
+===============================*/
+
+/*=============================
 	Start Dashboard CSS
 ===============================*/
 .dashboard {
 
 }
 .dashboard .utilities {
-	padding: 30px 0 50px 0;
+	padding-bottom: 10px;
 }
 .dashboard .single-utilities {
 	border-radius: 20px;
@@ -4756,7 +4785,12 @@ Version:1.0
 }
 .dashboard .content .form-group input{
 	width: 100%;
-	height: 50px;
+	height: 40px;
+	border-radius: 10px;
+}
+.dashboard .content .form-group select {
+	width: 100%;
+	height: 40px;
 	border-radius: 10px;
 }
 .dashboard .content .form-group textarea{

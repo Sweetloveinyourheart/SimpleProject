@@ -10,23 +10,25 @@ import Remove from '../components/DashBoard/Remove';
 import Find from '../components/DashBoard/Find';
 
 class DashBoard extends Component {
+    componentDidMount(){
+        window.scrollTo(0,0)
+    }
 
-    getStatus = (status, add, update, remove, message) => {
+    getStatus = (status, add, update, remove, isSuccess) => {
         switch (status) {
             case 'add':
-                return <Add add={add} message={message}/>
+                return <Add add={add} isSuccess={isSuccess}/>
             case 'update':
-                return <Update update={update} message={message}/>
+                return <Update update={update} isSuccess={isSuccess}/>
             case 'remove':
-                return <Remove remove={remove} message={message}/>
+                return <Remove remove={remove} isSuccess={isSuccess}/>
             default:
-                return <Add add={add} message={message}/>
+                return <Add add={add} isSuccess={isSuccess}/>
         }
     }
 
     render() {
-        const { status, addNewProduct, updateAProduct, removeAProduct, findAProduct, message } = this.props;
-        console.log(this.props.message)
+        const { status, addNewProduct, updateAProduct, removeAProduct, findAProduct, isSuccess } = this.props;
         return (
             <section className="section">
                 <div className="container">
@@ -41,7 +43,7 @@ class DashBoard extends Component {
                                         addNewProduct,
                                         updateAProduct,
                                         removeAProduct,
-                                        message)}
+                                        isSuccess)}
                                 </div>
                                 <div className="col-lg-4 col-12">
                                     <Find find={findAProduct} product={this.props.foundData}/>
@@ -57,9 +59,9 @@ class DashBoard extends Component {
 }
 const mapStateToProps = state => {
     return {
-        status: state.dashboard.status,
-        foundData: state.dashboard.data,
-        message: state.dashboard.success
+        status: state.dashboardSwitchUtilities.status,
+        foundData: state.dashboardFindAProduct.data,
+        isSuccess: state.dashboardUtilities.success
     }
 }
 

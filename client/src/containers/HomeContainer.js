@@ -8,28 +8,34 @@ import Newest from '../components/Home/Newest';
 import Cowndown from '../components/Home/Cowndown';
 import MidiumBanner from '../components/Home/MidiumBanner';
 import Service from '../components/Home/Service';
+import ModalContainer from './ModalContainer';
 
 class Home extends Component {
     async componentDidMount(){
+        window.scrollTo(0,0)
         await this.props.getNewestProduct()
+        await this.props.getTheMostExpensiveProduct()
     }
     render() {
-        const { newest } = this.props
+        const { newest, mostExpensive} = this.props
+        const { activeModal } = this.props
         return (
             <div>
                 <Slider />
                 <Banner />
-                <Newest product={newest} />
+                <Newest product={newest} active={activeModal}/>
                 <MidiumBanner />
-                <Cowndown />
+                <Cowndown product={mostExpensive}/>
                 <Service />
+                <ModalContainer />
             </div>
         );
     }
 }
 const mapStateToProps = state => {
     return {
-        newest: state.homepage.product
+        newest: state.homepageNewest.product,
+        mostExpensive: state.homepageRandom.product
     }
 }
 

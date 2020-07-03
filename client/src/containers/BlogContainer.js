@@ -3,7 +3,9 @@ import NewsFeed from '../components/Blog/Newsfeed';
 import TopBlog from '../components/Blog/TopBlog';
 
 class BlogContainer extends Component {
-    state = {  }
+	componentDidMount(){
+		window.scrollTo(0,0)
+	}
     render() { 
         return ( 
             <section className="blog-single section">

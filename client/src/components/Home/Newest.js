@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import NewestProduct from './NewestProduct';
 
 class Newest extends Component {
-    showProduct = (product) => {
+    showProduct = (product) => {       
         if (!product) {
             return <h3>Loading ...</h3>
         }
+        const { active } = this.props
         var newestProduct = product.map((value, index) => {
-            return <NewestProduct detail={value} key={index}/>
+            return <NewestProduct detail={value} key={index} active={active}/>
         })
         return newestProduct
     }
     render() {
-        const { product } = this.props
+        const { product } = this.props       
         return (
             <div className="product-area section">
                 <div className="container">

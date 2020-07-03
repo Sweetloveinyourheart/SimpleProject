@@ -6,7 +6,7 @@ class Add extends Component {
         this.state = {
             name: '',
             cost: '',
-            category: '',
+            category: 'Áo',
             image1: '', image2: '', image3: '', image4: '',
             description: '',
             link: ''
@@ -32,7 +32,7 @@ class Add extends Component {
             link: this.state.link
         }
         await this.props.add(newProduct);
-        if(this.props.message === true){
+        if(this.props.isSuccess === true){
             return alert('Add New Product Successfully !!')
         }
         return alert('Add New Product Failed !  ')
@@ -43,22 +43,34 @@ class Add extends Component {
                 <h3>Add New Product </h3>
                 <form className="add-form" onSubmit={this.onHandleSubmit} >
                     <div className="row">
-                        <div className="col-lg-4 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Product's Name<span>*</span></label>
                                 <input name="name" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-4 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Product's Cost<span>*</span></label>
                                 <input name="cost" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-4 col-12">
+                        <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Product's Category<span>*</span></label>
-                                <input name="category" type="text" onChange={this.onHandleChange} />
+                                <select onChange={this.onHandleChange} name="category">
+                                    <option value="Áo"> Áo </option>
+                                    <option value="Quần"> Quần </option>
+                                    <option value="Váy"> Váy </option>
+                                    <option value="Phụ Kiện"> Phụ Kiện </option>
+                                    <option value="Set"> Set </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-12">
+                            <div className="form-group">
+                                <label>Link To Product</label>
+                                <input name="link" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
                         <div className="col-lg-6 col-12">
@@ -69,28 +81,23 @@ class Add extends Component {
                         </div>
                         <div className="col-lg-6 col-12">
                             <div className="form-group">
-                                <label>Main Image</label>
+                                <label>Image</label>
                                 <input name="image2" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
                         <div className="col-lg-6 col-12">
                             <div className="form-group">
-                                <label>Main Image</label>
+                                <label>Image</label>
                                 <input name="image3" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
                         <div className="col-lg-6 col-12">
                             <div className="form-group">
-                                <label>Main Image</label>
+                                <label>Image</label>
                                 <input name="image4" type="text" onChange={this.onHandleChange} />
                             </div>
                         </div>
-                        <div className="col-lg-6 col-12">
-                            <div className="form-group">
-                                <label>Link To Product</label>
-                                <input name="link" type="text" onChange={this.onHandleChange} />
-                            </div>
-                        </div>
+                        
                         <div className="col-12">
                             <div className="form-group message">
                                 <label>Product Description<span>*</span></label>

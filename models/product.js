@@ -14,7 +14,8 @@ const productSchema = new Schema({
         type: String
     }, 
     category: {
-        type: String
+        type: String,
+        enum: ["Áo", "Quần", "Váy", "Phụ Kiện", "Set"]
     },
     description: {
         type: String,

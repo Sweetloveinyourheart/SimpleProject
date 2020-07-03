@@ -26,7 +26,6 @@ module.exports = {
             var skip = limit -8
             var category = RegExp("Áo", "i")
             const result = await Product.find({category}).sort({ create_date: -1 }).limit(limit).skip(skip);
-            
             res.status(200).json({
                 success: true,
                 product: result

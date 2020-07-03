@@ -3,7 +3,9 @@ import ContactForm from '../components/Contact/ContactForm';
 import ContactMethod from '../components/Contact/ContactMethod';
 
 class ContactContainer extends Component {
-    state = {}
+    componentDidMount(){
+        window.scrollTo(0,0)
+    }
     render() {
         return (
             <section className="contact-us section">

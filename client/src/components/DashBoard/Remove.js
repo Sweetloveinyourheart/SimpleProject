@@ -28,7 +28,7 @@ class Remove extends Component {
         const pass = this.checkValid(this.state.check);
         if (pass === true) {
             await this.props.remove(this.state.id)
-            if(this.props.message === true){
+            if(this.props.isSuccess === true){
                 return alert('Removed !')
             }
         }

@@ -1,38 +1,44 @@
-const express = require('express');
-const http = require('http');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const dashBoardRouter = require('./router/dashboardRouter');
-const homePageRouter = require('./router/homePageRouter');
-const shopRouter = require('./router/shopRouter');
-const morgan = require('morgan');
+const express = require('express')
+const http = require('http')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+const mongoose = require('mongoose')
+const dashBoardRouter = require('./router/dashboardRouter')
+const homePageRouter = require('./router/homePageRouter')
+const shopRouter = require('./router/shopRouter')
+const userRouter = require('./router/userRouter')
 
-require('dotenv').config();
+const morgan = require('morgan')
 
-const app = express();
+require('dotenv').config()
+
+const app = express()
 
 //Connect to MongoDB
 const uri = process.env.ATLAS;
 mongoose.connect(uri, {
     useFindAndModify: false,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }, err => {
     if(err) {
-        console.log(err);
+        console.log(err)
     }
     console.log('Connect to DB successfully !')
 })
 //MiddleWare
 app.use(cors());
-app.use(bodyParser.json());
-app.use(express.json());
+app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(express.json())
 app.use(morgan('dev'))
 //router
-app.use('/api', dashBoardRouter);
-app.use('/api', shopRouter);
-app.use('/api', homePageRouter);
+app.use('/api', dashBoardRouter)
+app.use('/api', shopRouter)
+app.use('/api', homePageRouter)
+app.use('/user', userRouter)
 
 const PORT = process.env.PORT || 9999;
 const sever = http.createServer(app);

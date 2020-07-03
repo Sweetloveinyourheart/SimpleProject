@@ -1,18 +1,33 @@
-const Product = require('../models/product');
+const Product = require('../models/product')
 
 module.exports = {
     findProduct: async (req, res, next) => {    
         try {
-            const name = req.query.name;
+            const name = req.query.name
             
             const criteria = RegExp(name, 'i')
-            const result = await Product.find({ name: criteria })
+            const result = await Product.find({ name: criteria }).limit(2)
                 .select({ _id: 1, name: 1, images: 1, price: 1 })
 
             res.status(200).json({
                 success: true,
                 product: result
             })
+        } catch (error) {
+            res.status(404).json({
+                success: false,
+                error
+            })
+        }
+    },
+    findProductById: async (req, res, next) => {
+        try {
+            const id =  req.params.id    
+            const result = await Product.findById(id).select({name: 1, price: 1, category: 1, images:1, link:1, description:1})  
+            res.status(200).json({
+                success: true,
+                product: result
+            })      
         } catch (error) {
             res.status(404).json({
                 success: false,

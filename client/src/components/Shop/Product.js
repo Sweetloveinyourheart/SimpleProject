@@ -4,9 +4,10 @@ import SingleProduct from './Product_Single';
 class ShopProduct extends Component {
     showProduct = () => {
         const product = this.props.product
+        const activeModal = this.props.activeModal
         if (product) {
             var result = product.map((value, index) => {
-                return <SingleProduct content={value} key={index} />
+                return <SingleProduct content={value} key={index} activeModal={activeModal} />
             })
             return result
         }

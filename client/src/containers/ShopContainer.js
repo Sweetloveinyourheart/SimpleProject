@@ -2,17 +2,22 @@ import React, { Component } from 'react'
 import Sidebar from '../components/Shop/Sidebar'
 import ShopProduct from '../components/Shop/Product'
 import Title from '../components/Shop/Title'
+import Modal from './ModalContainer'
 import PageController from '../components/Shop/PageController'
 import { connect } from 'react-redux'
 import * as actions from './../actions/shopActions'
 
+
 class ShopContainer extends Component {
     async componentDidMount(){
+        window.scrollTo(0,0)
         await this.props.getAllProduct(1)
+        
     }
     async componentDidUpdate(pP, pS, ss){
         const { category, page } = this.props
         if((pP.category !== category) || (pP.page !== page)){
+            window.scrollTo(0,0)
             switch (category) {
                 case "all": 
                     return await this.props.getAllProduct(page)
@@ -25,15 +30,15 @@ class ShopContainer extends Component {
                 case "costume":
                     return await this.props.getCostumeProduct(page)
                 case "accessory":
-                    return await this.props. getAccessoryProduct(page)
+                    return await this.props.getAccessoryProduct(page)
                 default:
                     return await this.props.getAllProduct(page)
             }
         }     
     }
     render() {
-        const { pageController, categoryController } = this.props
-        const { product, page } =this.props
+        const { pageController, categoryController, activeModal } = this.props
+        const { product, page } = this.props
         return (
             <section className="product-area section">
                 <div className="container">
@@ -44,12 +49,13 @@ class ShopContainer extends Component {
                         <div className="col-12">
                             <div className="product-info">
                                 <Sidebar category={categoryController} page={pageController}/>
-                                <ShopProduct product={product}/>                        
+                                <ShopProduct product={product} activeModal={activeModal}/>                        
                             </div>
                             <PageController page={pageController} activedPage={page}/>
                         </div>
                     </div>
                 </div>
+                <Modal />
             </section>
         );
     }

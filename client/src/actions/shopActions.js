@@ -119,3 +119,12 @@ export const categoryController = (category) => {
         })
     }
 }
+export const activeModal = ( content ) => {
+    return dispatch => {
+        dispatch({
+            type: types.ACTIVE_MODAL,
+            display: "block",
+            content
+        })
+    }
+}

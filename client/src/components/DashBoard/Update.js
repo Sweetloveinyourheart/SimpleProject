@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 class Update extends Component {
     constructor(props) {
         super(props);
-
-        this.onHandleChange = this.onHandleChange.bind(this);
-        this.onHandleSubmit = this.onHandleSubmit.bind(this);
+        this.onHandleChange = this.onHandleChange.bind(this)
+        this.onHandleSubmit = this.onHandleSubmit.bind(this)
     }
     onHandleChange(e) {
         var name = e.target.name
@@ -16,9 +15,12 @@ class Update extends Component {
     }
     async onHandleSubmit(e) {
         e.preventDefault();
-        if (!this.state.id) { alert('You must enter Product\'s id') }
-        console.log(this.state)
-
+        if(!this.state._id){
+            alert('You must enter product ID !')
+        }
+        await this.props.update(this.state, this.state._id)
+        this.props.isSuccess === true ? alert('Update product successfully !') : alert('Update product Failed')
+        
     }
     render() {
         return (
@@ -41,31 +43,13 @@ class Update extends Component {
                         <div className="col-lg-6 col-12">
                             <div className="form-group">
                                 <label>Product's Category<span>*</span></label>
-                                <input name="category" type="text" onChange={this.onHandleChange} />
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-12">
-                            <div className="form-group">
-                                <label>Cover Image<span>*</span></label>
-                                <input name="image1" type="text" onChange={this.onHandleChange} />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-12">
-                            <div className="form-group">
-                                <label>Main Image</label>
-                                <input name="image2" type="text" onChange={this.onHandleChange} />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-12">
-                            <div className="form-group">
-                                <label>Main Image</label>
-                                <input name="image3" type="text" onChange={this.onHandleChange} />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-12">
-                            <div className="form-group">
-                                <label>Main Image</label>
-                                <input name="image4" type="text" onChange={this.onHandleChange} />
+                                <select onChange={this.onHandleChange} name="category">
+                                    <option value="Áo"> Áo </option>
+                                    <option value="Quần"> Quần </option>
+                                    <option value="Váy"> Váy </option>
+                                    <option value="Phụ Kiện"> Phụ Kiện </option>
+                                    <option value="Set"> Set </option>
+                                </select>
                             </div>
                         </div>
                         <div className="col-lg-6 col-12">
@@ -82,13 +66,13 @@ class Update extends Component {
                         </div>
                         <div className="col-lg-6 col-12">
                             <div className="form-group">
-                                <label>Product's Id</label>
-                                <input name="id" type="text" onChange={this.onHandleChange} />
+                            <label>Product ID<span>*</span></label>
+                                <input name="_id" type="text" onChange={this.onHandleChange}  />
                             </div>
                         </div>
                         <div className="col-lg-6 col-12">
-                            <div className="form-group button" style={{ marginTop: '34px' }}>
-                                <button type="submit" className="btn ">Update This Product</button>
+                            <div className="form-group button" style={{marginTop: '30px'}}>
+                                <button className="btn ">Update This Product</button>
                             </div>
                         </div>
                     </div>

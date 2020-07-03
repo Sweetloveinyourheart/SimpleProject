@@ -7,8 +7,9 @@ import ShopContainer from './containers/ShopContainer.js';
 import BlogContainer from './containers/BlogContainer.js';
 import ContactContainer from './containers/ContactContainer.js';
 import DashBoard from './containers/Dashboard.js'
+import Login from './components/Authentication/Login.js'
+import AuthGuard from './components/Authentication/AuthGuard.js'
 import Footer from './components/Footer.js';
-import Modal from './components/Modal.js';
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
         <Route path="/shop" exact component={ShopContainer} />
         <Route path="/blog" exact component={BlogContainer} />
         <Route path="/contact" exact component={ContactContainer} />
-        <Route path="/admin/dashboard" exact component={DashBoard} />
+        <Route path="/admin/login" exact component={Login} />
+        <Route path="/admin/dashboard" exact component={AuthGuard(DashBoard)} />
       </Switch>
-      <Modal />
       <Footer />
     </Suspense>
   );
